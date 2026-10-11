@@ -11,7 +11,7 @@ async function sendAnswer(){
  const response=await fetch('https://formsubmit.co/ajax/glaisa06292004@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({_subject:'A little smile — someone answered '+answer,_captcha:'false',answer:answer==='yes'?'Yes, you did ♡':'Not yet',message:'Someone answered the question: Did I make you smile even a little?',website:location.origin}),signal:AbortSignal.timeout(15000)});
  const result=await response.json();
  if(!response.ok||!(result.success===true||result.success==='true'))throw new Error('Submission failed');
- delivered=true;status.textContent='Your answer has been submitted ♡';
+ delivered=true;status.textContent='';
  }catch{status.textContent='Your answer couldn’t be sent. You can try again, or keep going ♡';retry.hidden=false;}
  finally{sending=false;}
 }
@@ -35,5 +35,6 @@ function burst(){
 }
 document.getElementById('retry-email').addEventListener('click',()=>void sendAnswer());
 loadingTimer=setTimeout(()=>go('welcome'),13000);
+
 
 
