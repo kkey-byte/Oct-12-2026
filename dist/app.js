@@ -34,5 +34,6 @@ function burst(){
  document.querySelector('.paper').append(layer);setTimeout(()=>layer.remove(),1500);
 }
 document.getElementById('retry-email').addEventListener('click',()=>void sendAnswer());
-loadingTimer=setTimeout(()=>go('welcome'),20000);
+loadingTimer=setTimeout(()=>go('welcome'),13000);
+
 
